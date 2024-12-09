@@ -101,7 +101,7 @@ def solve(G):
         # Vrifier si les sommets forment un chemin de 4 sommets
         if G.has_edge(u, v) and G.has_edge(v, w) and G.has_edge(w, x):
             P4s.append((u, v, w, x)) # Ajouter le P4 la liste
-    st.write(f"Number of P4s: {len(P4s)}")
+    # st.write(f"Number of P4s: {len(P4s)}")
     def perfectly_order_graph(G, P4s):
         position = pl.LpVariable.dicts("position", G.nodes(), 1, len(G.nodes()) , cat='Integer')
         a=pl.LpVariable.dicts("a",[(i,j) for i in range(1,len(G.nodes())) for j in range(i+1, len(G.nodes())+1)],0,1,cat='Binary')
